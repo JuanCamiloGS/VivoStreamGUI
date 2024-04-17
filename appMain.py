@@ -20,6 +20,8 @@ class Window(QMainWindow, Ui_MainWindow):
         self.lineEditTT.setText(str(newVal))
 
     def resultPrinter(self):
+        self.textBrowser.clear()
+
         Q = float(self.lineEditQ.text())
         r0 = float(self.lineEditR0.text())
         mu = float(self.lineEditMu.text())
