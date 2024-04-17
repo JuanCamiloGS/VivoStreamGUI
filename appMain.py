@@ -13,6 +13,11 @@ class Window(QMainWindow, Ui_MainWindow):
 
     def connectSignalsSlots(self):
         self.pushButton.clicked.connect(self.resultPrinter)
+        self.horizontalSlider.valueChanged.connect(self.numberUpdater)
+
+    def numberUpdater(self):
+        newVal = self.horizontalSlider.value()
+        self.lineEditTT.setText(str(newVal))
 
     def resultPrinter(self):
         Q = float(self.lineEditQ.text())
