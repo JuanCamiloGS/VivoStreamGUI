@@ -74,6 +74,3 @@ def reservoir_height(dP, p, u, g):
     # The height of the reservoir (cm)
     h=100*(dP+0.5*p*u**2)/(p*g)
     return h
-
-def test_function():
-    return 'test text'
