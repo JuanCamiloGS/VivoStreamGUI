@@ -38,6 +38,11 @@ def friction_factor(Rn):
     Ff = 64/Rn
     return Ff
 
+def resistance_360(Ff, p, Q, R_b, r0, k_b):
+    # Resistance for 360 (ohm)
+    res_360 = (0.25*Ff*p)*(Q/math.pi)*(R_b/r0**5)*(360/180) + (0.5*k_b*p)*(Q/(math.pi**2 * r0**4))
+    return res_360
+
 def resistance_180(Ff, p, Q, R_b, r0, k_b):
     # Resistance for 180 (ohm)
     res_180 = (0.25*Ff*p)*(Q/math.pi)*(R_b/r0**5)*(180/180) + (0.5*k_b*p)*(Q/(math.pi**2 * r0**4))
