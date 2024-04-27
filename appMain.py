@@ -14,6 +14,8 @@ class Window(QMainWindow, Ui_MainWindow):
     def connectSignalsSlots(self):
         self.pushButton.clicked.connect(self.resultPrinter)
         self.horizontalSlider.valueChanged.connect(self.numberUpdater)
+        self.homeButton.clicked.connect(self.switchToHome)
+        self.calculatorButton.clicked.connect(self.switchToCalculator)
 
     def numberUpdater(self):
         newVal = self.horizontalSlider.value()
@@ -65,6 +67,12 @@ class Window(QMainWindow, Ui_MainWindow):
 
         h = reservoir_height(dP, p, u, g)
         self.textBrowser.append('The height of the reservoir: ' + str(h) + ' cm')
+    
+    def switchToHome(self):
+        self.stackedWidget.setCurrentIndex(0)
+    
+    def switchToCalculator(self):
+        self.stackedWidget.setCurrentIndex(1)
 
 
 
