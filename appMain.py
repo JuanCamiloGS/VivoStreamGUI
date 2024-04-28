@@ -16,6 +16,7 @@ class Window(QMainWindow, Ui_MainWindow):
         self.horizontalSlider.valueChanged.connect(self.numberUpdater)
         self.homeButton.clicked.connect(self.switchToHome)
         self.calculatorButton.clicked.connect(self.switchToCalculator)
+        self.designButton.clicked.connect(self.switchToDesign)
 
     def numberUpdater(self):
         newVal = self.horizontalSlider.value()
@@ -73,6 +74,9 @@ class Window(QMainWindow, Ui_MainWindow):
     
     def switchToCalculator(self):
         self.stackedWidget.setCurrentIndex(1)
+
+    def switchToDesign(self):
+        self.stackedWidget.setCurrentIndex(2)
 
 
 
