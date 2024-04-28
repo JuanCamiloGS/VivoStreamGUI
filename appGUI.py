@@ -16,15 +16,38 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(0, 0, 131, 661))
+        self.widget.setGeometry(QtCore.QRect(0, 0, 151, 661))
         self.widget.setAutoFillBackground(False)
-        self.widget.setStyleSheet("background-color: rgb(208, 208, 208);")
+        self.widget.setStyleSheet("QWidget {\n"
+"    background-color: rgb(208, 208, 208);\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    text-align:left;\n"
+"    border:none;\n"
+"    padding-left:5px;\n"
+"}")
         self.widget.setObjectName("widget")
         self.homeButton = QtWidgets.QPushButton(parent=self.widget)
-        self.homeButton.setGeometry(QtCore.QRect(20, 70, 75, 24))
+        self.homeButton.setGeometry(QtCore.QRect(10, 50, 131, 61))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.homeButton.setFont(font)
+        self.homeButton.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("resources/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.homeButton.setIcon(icon)
+        self.homeButton.setIconSize(QtCore.QSize(40, 40))
         self.homeButton.setObjectName("homeButton")
         self.calculatorButton = QtWidgets.QPushButton(parent=self.widget)
-        self.calculatorButton.setGeometry(QtCore.QRect(20, 110, 75, 24))
+        self.calculatorButton.setGeometry(QtCore.QRect(10, 140, 131, 61))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.calculatorButton.setFont(font)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("resources/calculator.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.calculatorButton.setIcon(icon1)
+        self.calculatorButton.setIconSize(QtCore.QSize(40, 40))
         self.calculatorButton.setObjectName("calculatorButton")
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.centralwidget)
         self.stackedWidget.setGeometry(QtCore.QRect(160, 10, 451, 641))
@@ -167,8 +190,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Application"))
-        self.homeButton.setText(_translate("MainWindow", "Home"))
-        self.calculatorButton.setText(_translate("MainWindow", "Calculator"))
+        self.homeButton.setText(_translate("MainWindow", " Home"))
+        self.calculatorButton.setText(_translate("MainWindow", " Calculator"))
         self.label_16.setText(_translate("MainWindow", "Our mission is to revolutionize microfluidics for organ-on-a-chip applications. We\'re dedicated to crafting accessible, adaptable perfusion systems that empower research and innovation. Our goal is to simplify complex experimentation, making scientific breakthroughs more achievable for all."))
         self.lineEditR0.setText(_translate("MainWindow", "1.0e-4"))
         self.lineEditKb.setText(_translate("MainWindow", "0.265"))
