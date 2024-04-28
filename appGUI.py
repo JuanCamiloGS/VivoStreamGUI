@@ -13,6 +13,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(623, 658)
+        MainWindow.setAutoFillBackground(False)
+        MainWindow.setStyleSheet("background-color:rgb(255, 255, 255)")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(parent=self.centralwidget)
@@ -25,32 +27,44 @@ class Ui_MainWindow(object):
 "QPushButton {\n"
 "    text-align:left;\n"
 "    border:none;\n"
-"    padding-left:5px;\n"
+"    padding-left:10px;\n"
+"    border-top-left-radius:10px;\n"
+"    border-bottom-left-radius:10px;\n"
+"}\n"
+"\n"
+"QPushButton:checked {\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    font-weight:bold;\n"
 "}")
         self.widget.setObjectName("widget")
         self.homeButton = QtWidgets.QPushButton(parent=self.widget)
-        self.homeButton.setGeometry(QtCore.QRect(10, 50, 131, 61))
+        self.homeButton.setGeometry(QtCore.QRect(10, 50, 141, 61))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.homeButton.setFont(font)
         self.homeButton.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("resources/home.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.homeButton.setIcon(icon)
         self.homeButton.setIconSize(QtCore.QSize(40, 40))
+        self.homeButton.setCheckable(True)
+        self.homeButton.setChecked(True)
+        self.homeButton.setAutoExclusive(True)
         self.homeButton.setObjectName("homeButton")
         self.calculatorButton = QtWidgets.QPushButton(parent=self.widget)
-        self.calculatorButton.setGeometry(QtCore.QRect(10, 140, 131, 61))
+        self.calculatorButton.setGeometry(QtCore.QRect(10, 140, 141, 61))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.calculatorButton.setFont(font)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("resources/calculator.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.calculatorButton.setIcon(icon1)
         self.calculatorButton.setIconSize(QtCore.QSize(40, 40))
+        self.calculatorButton.setCheckable(True)
+        self.calculatorButton.setAutoExclusive(True)
         self.calculatorButton.setObjectName("calculatorButton")
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.centralwidget)
-        self.stackedWidget.setGeometry(QtCore.QRect(160, 10, 451, 641))
+        self.stackedWidget.setGeometry(QtCore.QRect(170, 10, 451, 641))
         self.stackedWidget.setStyleSheet("")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page = QtWidgets.QWidget()

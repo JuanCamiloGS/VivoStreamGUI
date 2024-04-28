@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>Application</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(255, 255, 255)</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
@@ -34,7 +40,14 @@
 QPushButton {
 	text-align:left;
 	border:none;
-	padding-left:5px;
+	padding-left:10px;
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
+}
+
+QPushButton:checked {
+	background-color: rgb(255, 255, 255);
+	font-weight:bold;
 }</string>
     </property>
     <widget class="QPushButton" name="homeButton">
@@ -42,13 +55,13 @@ QPushButton {
       <rect>
        <x>10</x>
        <y>50</y>
-       <width>131</width>
+       <width>141</width>
        <height>61</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>11</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -67,19 +80,28 @@ QPushButton {
        <height>40</height>
       </size>
      </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <property name="autoExclusive">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPushButton" name="calculatorButton">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>140</y>
-       <width>131</width>
+       <width>141</width>
        <height>61</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>11</pointsize>
       </font>
      </property>
      <property name="text">
@@ -95,12 +117,18 @@ QPushButton {
        <height>40</height>
       </size>
      </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="autoExclusive">
+      <bool>true</bool>
+     </property>
     </widget>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>170</x>
       <y>10</y>
       <width>451</width>
       <height>641</height>
