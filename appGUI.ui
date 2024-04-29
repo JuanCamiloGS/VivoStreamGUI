@@ -172,7 +172,7 @@ QPushButton:checked {
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_16">
@@ -642,7 +642,7 @@ QPushButton:checked {
        <string/>
       </property>
      </widget>
-     <widget class="QDial" name="dial">
+     <widget class="QDial" name="dialPD">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -700,6 +700,9 @@ QPushButton:checked {
       <property name="text">
        <string>Pressure drop</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="radioButton_2">
       <property name="geometry">
@@ -714,7 +717,7 @@ QPushButton:checked {
        <string>Shear stress</string>
       </property>
      </widget>
-     <widget class="QDial" name="dial_2">
+     <widget class="QDial" name="dialSS">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -768,7 +771,7 @@ QPushButton:checked {
        <string>100</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="pushButtonDesign">
       <property name="geometry">
        <rect>
         <x>330</x>
