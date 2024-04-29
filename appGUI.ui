@@ -217,6 +217,28 @@ QPushButton:checked {
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>360</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(0, 112, 224)</string>
+      </property>
+      <property name="text">
+       <string>Learn more</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QLineEdit" name="lineEditR0">
