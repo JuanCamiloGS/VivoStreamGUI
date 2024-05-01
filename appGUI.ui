@@ -169,7 +169,15 @@ QPushButton:checked {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QPushButton {
+	background-color: rgb(119, 245, 207);
+	border-radius:5px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(88, 181, 152);
+	border-radius:5px;
+}</string>
     </property>
     <property name="currentIndex">
      <number>0</number>

@@ -77,7 +77,15 @@ class Ui_MainWindow(object):
         self.designButton.setObjectName("designButton")
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.centralwidget)
         self.stackedWidget.setGeometry(QtCore.QRect(170, 140, 451, 501))
-        self.stackedWidget.setStyleSheet("")
+        self.stackedWidget.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(119, 245, 207);\n"
+"    border-radius:5px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(88, 181, 152);\n"
+"    border-radius:5px;\n"
+"}")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
