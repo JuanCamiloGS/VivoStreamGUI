@@ -187,9 +187,9 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>30</y>
-        <width>421</width>
-        <height>111</height>
+        <y>20</y>
+        <width>411</width>
+        <height>91</height>
        </rect>
       </property>
       <property name="font">
@@ -202,6 +202,9 @@ QPushButton:pressed {
       <property name="text">
        <string>Our mission is to revolutionize microfluidics for organ-on-a-chip applications. We're dedicated to crafting accessible, adaptable perfusion systems that empower research and innovation. Our goal is to simplify complex experimentation, making scientific breakthroughs more achievable for all.</string>
       </property>
+      <property name="alignment">
+       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+      </property>
       <property name="wordWrap">
        <bool>true</bool>
       </property>
@@ -210,7 +213,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>150</y>
+        <y>140</y>
         <width>381</width>
         <height>131</height>
        </rect>
@@ -229,7 +232,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>290</y>
+        <y>280</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -251,7 +254,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>330</y>
+        <y>320</y>
         <width>381</width>
         <height>141</height>
        </rect>
@@ -270,7 +273,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>480</y>
+        <y>470</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -923,16 +926,6 @@ QPushButton:pressed {
       </item>
       <item>
        <property name="text">
-        <string>L/s</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>mL/s</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
         <string>uL/m</string>
        </property>
       </item>
@@ -949,16 +942,6 @@ QPushButton:pressed {
       <item>
        <property name="text">
         <string>m^3/s</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>L/s</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>mL/s</string>
        </property>
       </item>
       <item>
