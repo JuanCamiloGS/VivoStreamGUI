@@ -188,13 +188,13 @@ QPushButton:pressed {
        <rect>
         <x>10</x>
         <y>30</y>
-        <width>431</width>
-        <height>151</height>
+        <width>421</width>
+        <height>111</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>10</pointsize>
         <italic>true</italic>
         <bold>true</bold>
        </font>
@@ -209,17 +209,17 @@ QPushButton:pressed {
      <widget class="QLabel" name="label_17">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>210</y>
-        <width>371</width>
-        <height>141</height>
+        <x>20</x>
+        <y>150</y>
+        <width>381</width>
+        <height>131</height>
        </rect>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>resources/channel_flow.png</pixmap>
+       <pixmap>resources/stockImage2.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -228,8 +228,49 @@ QPushButton:pressed {
      <widget class="QLabel" name="label_19">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>360</y>
+        <x>20</x>
+        <y>290</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(0, 112, 224)</string>
+      </property>
+      <property name="text">
+       <string>Learn more</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>330</y>
+        <width>381</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>resources/stockImage1.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>480</y>
         <width>71</width>
         <height>16</height>
        </rect>
