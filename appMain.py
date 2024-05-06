@@ -18,8 +18,6 @@ class Window(QMainWindow, Ui_MainWindow):
         self.homeButton.clicked.connect(self.switchToHome)
         self.calculatorButton.clicked.connect(self.switchToCalculator)
         self.designButton.clicked.connect(self.switchToDesign)
-        self.dialPD.valueChanged.connect(self.numberUpdater_PressureDrop)
-        self.dialSS.valueChanged.connect(self.numberUpdater_ShearStress)
         self.pushButtonDesign.clicked.connect(self.resultPrinterDesign)
         self.chipSlot1.clicked.connect(self.changeModelPixmap)
         self.chipSlot2.clicked.connect(self.changeModelPixmap)
@@ -74,18 +72,6 @@ class Window(QMainWindow, Ui_MainWindow):
 
         h = reservoir_height(dP, p, u, g)
         self.textBrowser.append('The height of the reservoir: ' + str(h) + ' cm')
-    
-    def numberUpdater_PressureDrop(self):
-        dialVal = self.dialPD.value()
-        oldVal = float(self.lineEditPD.text())
-        newVal = dialVal + oldVal
-        self.lineEditPD.setText(str(newVal))
-    
-    def numberUpdater_ShearStress(self):
-        dialVal = self.dialSS.value()
-        oldVal = float(self.lineEditSS.text())
-        newVal = dialVal + oldVal
-        self.lineEditSS.setText(str(newVal))
 
     def changeModelPixmap(self):
         if self.chipSlot1.isChecked():
