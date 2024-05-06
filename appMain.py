@@ -1,6 +1,7 @@
 import sys
 
 from PyQt6.QtWidgets import QApplication, QMainWindow
+from PyQt6.QtGui import QPixmap
 
 from appGUI import Ui_MainWindow
 from appFunctions import *
@@ -20,6 +21,8 @@ class Window(QMainWindow, Ui_MainWindow):
         self.dialPD.valueChanged.connect(self.numberUpdater_PressureDrop)
         self.dialSS.valueChanged.connect(self.numberUpdater_ShearStress)
         self.pushButtonDesign.clicked.connect(self.resultPrinterDesign)
+        self.chipSlot1.clicked.connect(self.changeModelPixmap)
+        self.chipSlot2.clicked.connect(self.changeModelPixmap)
 
     def numberUpdater(self):
         newVal = self.horizontalSlider.value()
@@ -84,9 +87,30 @@ class Window(QMainWindow, Ui_MainWindow):
         newVal = dialVal + oldVal
         self.lineEditSS.setText(str(newVal))
 
+    def changeModelPixmap(self):
+        if self.chipSlot1.isChecked():
+            if self.chipSlot2.isChecked():
+                self.labelModel.setPixmap(QPixmap('resources/Model2D'))
+            else:
+                self.labelModel.setPixmap(QPixmap('resources/Model2B'))
+        else:
+            if self.chipSlot2.isChecked():
+                self.labelModel.setPixmap(QPixmap('resources/Model2C'))
+            else:
+                self.labelModel.setPixmap(QPixmap('resources/Model2A'))
+
+
     def resultPrinterDesign(self):
-        self.T1Output.setText("1")
-        self.T2Output.setText("2")
+        if self.chipSlot1.isChecked():
+            self.T1Output.setText("1")
+        else:
+            self.T1Output.setText("")
+
+        if self.chipSlot2.isChecked():
+            self.T2Output.setText("2")
+        else:
+            self.T2Output.setText("")
+        
     
     def switchToHome(self):
         self.stackedWidget.setCurrentIndex(0)
