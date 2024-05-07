@@ -746,7 +746,7 @@ QPushButton:pressed {
       </property>
       <item>
        <property name="text">
-        <string>m?</string>
+        <string>m</string>
        </property>
       </item>
      </widget>
@@ -761,7 +761,7 @@ QPushButton:pressed {
       </property>
       <item>
        <property name="text">
-        <string>m?</string>
+        <string>m</string>
        </property>
       </item>
      </widget>
@@ -776,24 +776,25 @@ QPushButton:pressed {
       </property>
       <item>
        <property name="text">
-        <string>m?</string>
+        <string>m</string>
        </property>
       </item>
      </widget>
-     <widget class="QComboBox" name="comboBox10">
+     <widget class="QLabel" name="label_27">
       <property name="geometry">
        <rect>
         <x>360</x>
         <y>40</y>
         <width>71</width>
-        <height>22</height>
+        <height>21</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>?</string>
-       </property>
-      </item>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">
