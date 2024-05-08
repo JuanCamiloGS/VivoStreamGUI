@@ -38,7 +38,6 @@ class Window(QMainWindow, Ui_MainWindow):
         g = float(self.lineEditG.text())
         R_b = float(self.lineEditBD.text())
         n = float(self.lineEditTT.text())
-        length_chip = float(self.lineEditCL.text())
 
         u = velocity(Q, r0)
         self.textBrowser.append('Velocity: ' + str(u) + 'm/s')
@@ -52,19 +51,10 @@ class Window(QMainWindow, Ui_MainWindow):
         Ff = friction_factor(Rn)
         self.textBrowser.append('Friction factor: ' + str(Ff))
 
-        res_180 = resistance_180(Ff, p, Q, R_b, r0, k_b)
-        self.textBrowser.append('Resistance for 180: ' + str(res_180) + ' Ohm')
+        res_360 = resistance_360(Ff, p, Q, R_b, r0, k_b)
+        self.textBrowser.append('Resistance for 360: ' + str(res_360) + ' Ohm')
 
-        res_90 = resistance_90(Ff, p, Q, R_b, r0, k_b)
-        self.textBrowser.append('Resistance for 180: ' + str(res_90) + ' Ohm')
-
-        res_perfusion = resistance_perfusion(res_length, n, res_180, res_90)
-        self.textBrowser.append('Total resistance perfusion system: ' + str(res_perfusion) + ' Ohm')
-
-        res_chip = resistance_chip(mu, length_chip, r0)
-        self.textBrowser.append('Resistance of chip to waste: ' + str(res_chip) + ' Ohm')
-
-        res_tot = total_resistance(res_perfusion, res_chip)
+        res_tot = resistance_perfusion(res_length, n, res_360)
         self.textBrowser.append('Total resistance of the system: ' + str(res_tot) + ' Ohm')
 
         dP = pressure_drop(res_tot, Q)
@@ -72,6 +62,10 @@ class Window(QMainWindow, Ui_MainWindow):
 
         h = reservoir_height(dP, p, u, g)
         self.textBrowser.append('The height of the reservoir: ' + str(h) + ' cm')
+
+        tube_length, coils = tube_length_coils_optimization(r0, mu, res_360, 0.10, p, g, u, Q, R_b)
+        self.textBrowser.append('The optimal length of the tube: ' + str(tube_length) + ' cm')
+        self.textBrowser.append('The optimal number of coils: ' + str(coils) + '')
 
     def changeModelPixmap(self):
         if self.chipSlot1.isChecked():

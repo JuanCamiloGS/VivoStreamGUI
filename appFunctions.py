@@ -53,22 +53,10 @@ def resistance_90(Ff, p, Q, R_b, r0, k_b):
     res_90 = (0.25*Ff*p)*(Q/math.pi)*(R_b/r0**5)*(90/180) + (0.5*k_b*p)*(Q/(math.pi**2 * r0**4))
     return res_90
 
-def resistance_perfusion(res_length, n, res_180, res_90):
+def resistance_perfusion(res_length, n, res_360):
     # Total resistance perfusion system (ohm)
-    res_perfusion = res_length + n*res_180 + 2*res_90
+    res_perfusion = res_length + n*res_360
     return res_perfusion
-
-# CHIP
-
-def resistance_chip(mu, length_chip, r0):
-    # Resistance of chip to waste (Ohm)
-    res_chip = (8*mu*length_chip)/(math.pi * r0**4)
-    return res_chip
-
-def total_resistance(res_perfusion, res_chip):
-    # Total resistance of the system (Ohm)
-    res_tot = res_perfusion + res_chip
-    return res_tot
 
 def pressure_drop(res_tot, Q):
     # The pressure drop (Pa)
@@ -79,3 +67,13 @@ def reservoir_height(dP, p, u, g):
     # The height of the reservoir (cm)
     h=100*(dP+0.5*p*u**2)/(p*g)
     return h
+
+def tube_length_coils_optimization(r0, mu, res_360, h, p, g, u, Q, R_b):
+    x = 1
+    ni = 0
+    while ni <= x:
+        ni += 1
+        L = (math.pi*r0**4/(8*mu))*(-ni*res_360 + ((h*p*g)-(0.5*p*u**2))/Q)
+        x = (L-0.10)/(2*math.pi*R_b)
+        x = round(x)
+    return L, x
