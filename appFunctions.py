@@ -77,3 +77,30 @@ def tube_length_coils_optimization(r0, mu, res_360, h, p, g, u, Q, R_b):
         x = (L-0.10)/(2*math.pi*R_b)
         x = round(x)
     return L, x
+
+def coilsDesign(Q):
+    # Pressure/flow rate = res_length + n*res_360
+    # n = (Pressure/flow rate - res_length)/res_360
+    mu = 1.0016e-3
+    length = 0.4
+    r0 = 19e-5
+    res_length = resistance_length(mu, length, r0)
+    print(res_length)
+
+    p = 1000
+    u = velocity(Q, r0)
+    Rn = reynolds_number(p, u, r0, mu)
+    Ff = friction_factor(Rn)
+    R_b = 30e-4
+    k_b = 0.265
+    res_360 = resistance_360(Ff, p, Q, R_b, r0, k_b)
+    print(res_360)
+
+    h = 0.1
+    g = 9.81
+    pressure = (h * p * g) - 0.5 * p * u ** 2
+    print(pressure)
+
+    n = (pressure/Q - res_length)/res_360
+    print(n)
+    return int(n) 

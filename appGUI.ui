@@ -769,7 +769,7 @@ QPushButton:pressed {
        <rect>
         <x>290</x>
         <y>130</y>
-        <width>31</width>
+        <width>41</width>
         <height>21</height>
        </rect>
       </property>
@@ -785,7 +785,7 @@ QPushButton:pressed {
        <rect>
         <x>290</x>
         <y>80</y>
-        <width>31</width>
+        <width>41</width>
         <height>21</height>
        </rect>
       </property>
@@ -862,7 +862,7 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="text">
-       <string>2.8e-12</string>
+       <string>7.1e-10</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEditChip2">
@@ -875,15 +875,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="text">
-       <string>1.4e-12</string>
+       <string>6.22e-10</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButtonDesign">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>350</x>
         <y>80</y>
-        <width>101</width>
+        <width>91</width>
         <height>71</height>
        </rect>
       </property>

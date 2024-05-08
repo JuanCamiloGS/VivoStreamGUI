@@ -81,16 +81,17 @@ class Window(QMainWindow, Ui_MainWindow):
 
 
     def resultPrinterDesign(self):
+        Q1 = float(self.lineEditChip1.text())
+        Q2 = float(self.lineEditChip2.text())
         if self.chipSlot1.isChecked():
-            self.T1Output.setText("1")
+            self.T1Output.setText(str(coilsDesign(Q1)))
         else:
             self.T1Output.setText("")
 
         if self.chipSlot2.isChecked():
-            self.T2Output.setText("2")
+            self.T2Output.setText(str(coilsDesign(Q2)))
         else:
             self.T2Output.setText("")
-        
     
     def switchToHome(self):
         self.stackedWidget.setCurrentIndex(0)
