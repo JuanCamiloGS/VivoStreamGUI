@@ -81,10 +81,10 @@ class Window(QMainWindow, Ui_MainWindow):
             h = reservoir_height(dP, p, u, g)
             self.textBrowser.append('The height of the reservoir: ' + str(h) + ' cm')
         elif index == 1:
-            pressure = (h * p * g) - 0.5 * p * u ** 2
-            self.textBrowser.append('The pressure of the system: ' + str(pressure) + ' Pa')
+            pr = pressure(h, p, g, u)
+            self.textBrowser.append('The pressure of the system: ' + str(pr) + ' Pa')
 
-            new_n = (pressure/Q - res_length)/res_360
+            new_n = coilsNumber(pr, Q, res_length, res_360)
             self.textBrowser.append('The number of coils needed: ' + str(int(new_n)) + '')
 
 

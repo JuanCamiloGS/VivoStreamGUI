@@ -78,6 +78,16 @@ def tube_length_coils_optimization(r0, mu, res_360, h, p, g, u, Q, R_b):
         x = round(x)
     return L, x
 
+def pressure(h, p, g, u):
+    # Pressure (Pa?)
+    pr = (h * p * g) - 0.5 * p * u ** 2
+    return pr
+
+def coilsNumber(pr, Q, res_length, res_360):
+    # Number of coils needed
+    n = (pr/Q - res_length)/res_360
+    return n
+
 def coilsDesign(Q, p):
     # Pressure/flow rate = res_length + n*res_360
     # n = (Pressure/flow rate - res_length)/res_360
@@ -95,7 +105,7 @@ def coilsDesign(Q, p):
 
     h = 0.1
     g = 9.81
-    pressure = (h * p * g) - 0.5 * p * u ** 2
+    pr = pressure(h, p, g, u)
 
-    n = (pressure/Q - res_length)/res_360
+    n = coilsNumber(pr, Q, res_length, res_360)
     return int(n) 
