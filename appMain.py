@@ -40,7 +40,7 @@ class Window(QMainWindow, Ui_MainWindow):
         n = float(self.lineEditTT.text())
 
         u = velocity(Q, r0)
-        self.textBrowser.append('Velocity: ' + str(u) + 'm/s')
+        self.textBrowser.append('Velocity: ' + str(u) + ' m/s')
 
         res_length = resistance_length(mu, length, r0)
         self.textBrowser.append('Resistance for the length: ' + str(res_length) + ' Ohm')
@@ -63,9 +63,9 @@ class Window(QMainWindow, Ui_MainWindow):
         h = reservoir_height(dP, p, u, g)
         self.textBrowser.append('The height of the reservoir: ' + str(h) + ' cm')
 
-        tube_length, coils = tube_length_coils_optimization(r0, mu, res_360, 0.10, p, g, u, Q, R_b)
-        self.textBrowser.append('The optimal length of the tube: ' + str(tube_length) + ' cm')
-        self.textBrowser.append('The optimal number of coils: ' + str(coils) + '')
+        #tube_length, coils = tube_length_coils_optimization(r0, mu, res_360, 0.10, p, g, u, Q, R_b)
+        #self.textBrowser.append('The optimal length of the tube: ' + str(tube_length) + ' cm')
+        #self.textBrowser.append('The optimal number of coils: ' + str(coils) + '')
 
     def changeModelPixmap(self):
         if self.chipSlot1.isChecked():
@@ -82,14 +82,16 @@ class Window(QMainWindow, Ui_MainWindow):
 
     def resultPrinterDesign(self):
         Q1 = float(self.lineEditChip1.text())
+        p1 = float(self.lineEditMedium1.text())
         Q2 = float(self.lineEditChip2.text())
+        p2 = float(self.lineEditMedium2.text())
         if self.chipSlot1.isChecked():
-            self.T1Output.setText(str(coilsDesign(Q1)))
+            self.T1Output.setText(str(coilsDesign(Q1, p1)))
         else:
             self.T1Output.setText("")
 
         if self.chipSlot2.isChecked():
-            self.T2Output.setText(str(coilsDesign(Q2)))
+            self.T2Output.setText(str(coilsDesign(Q2, p2)))
         else:
             self.T2Output.setText("")
     
