@@ -389,7 +389,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Application"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "VivoStream"))
         self.homeButton.setText(_translate("MainWindow", " Home"))
         self.calculatorButton.setText(_translate("MainWindow", " Calculator"))
         self.designButton.setText(_translate("MainWindow", " Design"))
