@@ -354,6 +354,9 @@ QPushButton:pressed {
       </property>
      </widget>
      <widget class="QSlider" name="horizontalSlider">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>170</x>
@@ -418,6 +421,9 @@ QPushButton:pressed {
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEditTT">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -428,6 +434,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>6</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QTextBrowser" name="textBrowser">
@@ -761,6 +770,9 @@ QPushButton:pressed {
       </item>
      </widget>
      <widget class="QLineEdit" name="lineEditH">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>280</x>
@@ -786,7 +798,10 @@ QPushButton:pressed {
        <string>h</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox5_2">
+     <widget class="QComboBox" name="comboBox9">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>360</x>

@@ -21,10 +21,24 @@ class Window(QMainWindow, Ui_MainWindow):
         self.pushButtonDesign.clicked.connect(self.resultPrinterDesign)
         self.chipSlot1.clicked.connect(self.changeModelPixmap)
         self.chipSlot2.clicked.connect(self.changeModelPixmap)
+        self.comboBoxGet.currentIndexChanged.connect(self.getIndexChanged)
 
     def numberUpdater(self):
         newVal = self.horizontalSlider.value()
         self.lineEditTT.setText(str(newVal))
+    
+    def getIndexChanged(self):
+        index = self.comboBoxGet.currentIndex()
+        if index == 0:
+            self.lineEditH.setEnabled(False)
+            self.comboBox9.setEnabled(False)
+            self.lineEditTT.setEnabled(True)
+            self.horizontalSlider.setEnabled(True)
+        elif index == 1:
+            self.lineEditTT.setEnabled(False)
+            self.horizontalSlider.setEnabled(False)
+            self.lineEditH.setEnabled(True)
+            self.comboBox9.setEnabled(True)
 
     def resultPrinter(self):
         self.textBrowser.clear()
