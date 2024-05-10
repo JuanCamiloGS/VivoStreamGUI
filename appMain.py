@@ -29,6 +29,8 @@ class Window(QMainWindow, Ui_MainWindow):
     def resultPrinter(self):
         self.textBrowser.clear()
 
+        index = self.comboBoxGet.currentIndex()
+
         Q = float(self.lineEditQ.text())
         r0 = float(self.lineEditR0.text())
         mu = float(self.lineEditMu.text())
@@ -38,6 +40,7 @@ class Window(QMainWindow, Ui_MainWindow):
         g = float(self.lineEditG.text())
         R_b = float(self.lineEditBD.text())
         n = float(self.lineEditTT.text())
+        h = float(self.lineEditH.text())/100 #Due to default units being cm
 
         u = velocity(Q, r0)
         self.textBrowser.append('Velocity: ' + str(u) + ' m/s')
@@ -54,18 +57,22 @@ class Window(QMainWindow, Ui_MainWindow):
         res_360 = resistance_360(Ff, p, Q, R_b, r0, k_b)
         self.textBrowser.append('Resistance for 360: ' + str(res_360) + ' Ohm')
 
-        res_tot = resistance_perfusion(res_length, n, res_360)
-        self.textBrowser.append('Total resistance of the system: ' + str(res_tot) + ' Ohm')
+        if index == 0:
+            res_tot = resistance_perfusion(res_length, n, res_360)
+            self.textBrowser.append('Total resistance of the system: ' + str(res_tot) + ' Ohm')
 
-        dP = pressure_drop(res_tot, Q)
-        self.textBrowser.append('The pressure drop: ' + str(dP) + ' Pa')
+            dP = pressure_drop(res_tot, Q)
+            self.textBrowser.append('The pressure drop: ' + str(dP) + ' Pa')
 
-        h = reservoir_height(dP, p, u, g)
-        self.textBrowser.append('The height of the reservoir: ' + str(h) + ' cm')
+            h = reservoir_height(dP, p, u, g)
+            self.textBrowser.append('The height of the reservoir: ' + str(h) + ' cm')
+        elif index == 1:
+            pressure = (h * p * g) - 0.5 * p * u ** 2
+            self.textBrowser.append('The pressure of the system: ' + str(pressure) + ' Pa')
 
-        #tube_length, coils = tube_length_coils_optimization(r0, mu, res_360, 0.10, p, g, u, Q, R_b)
-        #self.textBrowser.append('The optimal length of the tube: ' + str(tube_length) + ' cm')
-        #self.textBrowser.append('The optimal number of coils: ' + str(coils) + '')
+            new_n = (pressure/Q - res_length)/res_360
+            self.textBrowser.append('The number of coils needed: ' + str(int(new_n)) + '')
+
 
     def changeModelPixmap(self):
         if self.chipSlot1.isChecked():
